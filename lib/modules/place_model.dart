@@ -7,7 +7,9 @@ class Place{
   String rating;
   String vicinity;
   String id;
-
-  Place(this.icon, this.name, this.rating, this.vicinity, this.id);
+  String international_phone_number;
+  List<String> weekday_text;
+  String formatted_address;
+  Place(this.icon, this.name, this.rating, this.vicinity, this.id, []);
 
 }

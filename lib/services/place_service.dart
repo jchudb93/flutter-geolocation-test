@@ -25,4 +25,23 @@ class PlacesService {
 
     return places;
   }
+
+  final String detailUrl = "";
+
+  Future getPlace(Place place) async {
+    var response = await http
+        .get(detailUrl + place.id, headers: {"Accept": "application/json"});
+
+    var result = json.decode(response.body)["resut"];
+
+    List<String> weekdays = [];
+
+    if (result["opening_hours"] != null) {
+      weekdays = result["opening_hours"]["weekday_text"];
+    }
+    place.weekday_text = weekdays;
+    place.formatted_address = result["formatted_address"];
+    place.international_phone_number = result["international_phone_number"];
+    return place;
+  }
 }
