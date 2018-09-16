@@ -50,7 +50,7 @@ class PlacesScreenState extends State<PlacesScreen> {
     Navigator.push(
         context,
         new MaterialPageRoute(
-            builder: (BuildContext context) => new PlaceDetailScreen()));
+            builder: (BuildContext context) => new PlaceDetailScreen(place)));
   }
 
   List<Place> _places;
